@@ -1,0 +1,71 @@
+#include <windows.h>
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);	//타입 미리 해두는게 좋음
+
+
+LPCTSTR lpszClass = TEXT("Menu");
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
+{
+	HWND	hwnd;	//HWND라는 타입으로 hwnd변수 생성
+	MSG		msg;	//MSG라는 타입으로 msg변수 생성
+	WNDCLASS WndClass;   
+	WndClass.style			= CS_HREDRAW | CS_VREDRAW;	//멤버변수에 값을 채워줌
+	WndClass.lpfnWndProc	= WndProc;      //멤버변수에 값을 채워줌
+	WndClass.cbClsExtra		= 0;      //멤버변수에 값을 채워줌
+	WndClass.cbWndExtra		= 0;      //멤버변수에 값을 채워줌
+	WndClass.hInstance		= hInstance;      //멤버변수에 값을 채워줌
+	WndClass.hIcon			= LoadIcon(NULL, IDI_APPLICATION);//멤버변수에 값을 채워줌
+	WndClass.hCursor		= LoadCursor(NULL, IDC_ARROW);   //멤버변수에 값을 채워줌
+	WndClass.hbrBackground	= (HBRUSH)GetStockObject(WHITE_BRUSH);   //멤버변수에 값을 채워줌
+	WndClass.lpszMenuName	= NULL;      //멤버변수에 값을 채워줌
+	WndClass.lpszClassName	= lpszClass;   //멤버변수에 값을 채워줌
+	RegisterClass(&WndClass);   //위의 항목들 윈도우에 등록
+
+	hwnd = CreateWindow(lpszClass,
+		lpszClass,
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT,			//사용자가 디폴트
+		CW_USEDEFAULT,   
+		CW_USEDEFAULT,   
+		CW_USEDEFAULT,   
+		NULL,   
+		NULL,   
+		hInstance,   
+		NULL    
+	);	//10개 변수들은 뭘 뜻하는지 ppt 47쪽에 설명. 
+	ShowWindow(hwnd, nCmdShow);
+	UpdateWindow(hwnd);//윈도우 등록, 생성 화면에 보인 다음에
+
+	while(GetMessage(&msg, NULL, 0, 0))//무한 루프되다가 걸리는 거 있으면 WndProx한테 던져줌
+	{
+		TranslateMessage(&msg);   
+		DispatchMessage(&msg);   
+	}   
+	return (int)msg.wParam;
+}
+
+LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)     
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static COLORREF fColor;
+
+
+	switch (iMsg) 
+	{
+	case WM_CREATE:  //처음할 때 딱 한 번 실행됨.
+		fColor = RGB(0,0,0);
+		break;
+	case WM_PAINT:
+		hdc = BeginPaint(hwnd, &ps);
+		SetTextColor(hdc, fColor);
+		TextOut(hdc, 10, 10, TEXT("Hello Windows API Programming"), 29);
+		EndPaint(hwnd, &ps);
+		break;
+	case WM_DESTROY:	//프로그램 종료할 때 딱 한 번 실행됨. 뒷정리 여기서 다 해야함
+		PostQuitMessage(0);
+		break;
+	} 
+	return DefWindowProc(hwnd, iMsg, wParam, lParam); 
+}
