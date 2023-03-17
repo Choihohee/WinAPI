@@ -1,43 +1,43 @@
 #include <windows.h>
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
-////Å¸ÀÔ ¹Ì¸® ÇØµÎ´Â°Ô ÁÁÀ½
+////íƒ€ìž… ë¯¸ë¦¬ í•´ë‘ëŠ”ê²Œ ì¢‹ìŒ
 
 LPCTSTR lpszClass = TEXT("Menu");
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int nCmdShow)
-        /*WINAPI: À©µµ¿ì ÇÁ·Î±×·¥ÀÌ¶ó´Â ÀÇ¹Ì
-		hInstance: ¿î¿µÃ¼Á¦ÀÇ Ä¿³ÎÀÌ ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ºÎ¿©ÇÑ ID
-		szCmdLine: Ä¿¸àµå¶óÀÎ »ó¿¡¼­ ÇÁ·Î±×·¥ ±¸µ¿ ½Ã Àü´ÞµÈ ¹®ÀÚ¿­
-		iCmdShow: À©µµ¿ì°¡ È­¸é¿¡ Ãâ·ÂµÉ ÇüÅÂ*/
+        /*WINAPI: ìœˆë„ìš° í”„ë¡œê·¸ëž¨ì´ë¼ëŠ” ì˜ë¯¸
+		hInstance: ìš´ì˜ì²´ì œì˜ ì»¤ë„ì´ ì‘ìš© í”„ë¡œê·¸ëž¨ì— ë¶€ì—¬í•œ ID
+		szCmdLine: ì»¤ë©˜ë“œë¼ì¸ ìƒì—ì„œ í”„ë¡œê·¸ëž¨ êµ¬ë™ ì‹œ ì „ë‹¬ëœ ë¬¸ìžì—´
+		iCmdShow: ìœˆë„ìš°ê°€ í™”ë©´ì— ì¶œë ¥ë  í˜•íƒœ*/
 {
-   HWND	hwnd;	//HWND¶ó´Â Å¸ÀÔÀ¸·Î hwndº¯¼ö »ý¼º
-	MSG		msg;	//MSG¶ó´Â Å¸ÀÔÀ¸·Î msgº¯¼ö »ý¼º
+   HWND	hwnd;	//HWNDë¼ëŠ” íƒ€ìž…ìœ¼ë¡œ hwndë³€ìˆ˜ ìƒì„±
+	MSG		msg;	//MSGë¼ëŠ” íƒ€ìž…ìœ¼ë¡œ msgë³€ìˆ˜ ìƒì„±
 	WNDCLASS WndClass;   
-	WndClass.style			= CS_HREDRAW | CS_VREDRAW;	//¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.lpfnWndProc	= WndProc;      //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.cbClsExtra		= 0;      //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.cbWndExtra		= 0;      //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.hInstance		= hInstance;      //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.hIcon			= LoadIcon(NULL, IDI_APPLICATION);//¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.hCursor		= LoadCursor(NULL, IDC_ARROW);   //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.hbrBackground	= (HBRUSH)GetStockObject(WHITE_BRUSH);   //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.lpszMenuName	= NULL;      //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	WndClass.lpszClassName	= lpszClass;   //¸â¹öº¯¼ö¿¡ °ªÀ» Ã¤¿öÁÜ
-	RegisterClass(&WndClass);   //À§ÀÇ Ç×¸ñµé À©µµ¿ì¿¡ µî·Ï   
+	WndClass.style			= CS_HREDRAW | CS_VREDRAW;	//ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.lpfnWndProc	= WndProc;      //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.cbClsExtra		= 0;      //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.cbWndExtra		= 0;      //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.hInstance		= hInstance;      //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.hIcon			= LoadIcon(NULL, IDI_APPLICATION);//ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.hCursor		= LoadCursor(NULL, IDC_ARROW);   //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.hbrBackground	= (HBRUSH)GetStockObject(WHITE_BRUSH);   //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.lpszMenuName	= NULL;      //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	WndClass.lpszClassName	= lpszClass;   //ë©¤ë²„ë³€ìˆ˜ì— ê°’ì„ ì±„ì›Œì¤Œ
+	RegisterClass(&WndClass);   //ìœ„ì˜ í•­ëª©ë“¤ ìœˆë„ìš°ì— ë“±ë¡   
 
-  hwnd = CreateWindow//À©µµ¿ì°¡ »ý¼ºµÇ¸é ÇÚµé(hwnd)ÀÌ ¹ÝÈ¯µÊ
-		(lpszClass,				// À©µµ¿ì Å¬·¡½º ÀÌ¸§
-		lpszClass,				// À©µµ¿ì Å¸ÀÌÆ² ÀÌ¸§
-		WS_OVERLAPPEDWINDOW,	// À©µµ¿ì ½ºÅ¸ÀÏ
-		CW_USEDEFAULT,			// À©µµ¿ì À§Ä¡, xÁÂÇ¥
-		CW_USEDEFAULT,			// À©µµ¿ì À§Ä¡, yÁÂÇ¥
-		CW_USEDEFAULT,			// À©µµ¿ì Æø
-        CW_USEDEFAULT,			// À©µµ¿ì ³ôÀÌ
-        NULL,					// ºÎ¸ð À©µµ¿ì ÇÚµé
-        NULL,					// ¸Þ´º ÇÚµé
-        hInstance,				// ÀÀ¿ë ÇÁ·Î±×·¥ ID
-		NULL);					// »ý¼ºµÈ À©µµ¿ì Á¤º¸
+  hwnd = CreateWindow//ìœˆë„ìš°ê°€ ìƒì„±ë˜ë©´ í•¸ë“¤(hwnd)ì´ ë°˜í™˜ë¨
+		(lpszClass,				// ìœˆë„ìš° í´ëž˜ìŠ¤ ì´ë¦„
+		lpszClass,				// ìœˆë„ìš° íƒ€ì´í‹€ ì´ë¦„
+		WS_OVERLAPPEDWINDOW,	// ìœˆë„ìš° ìŠ¤íƒ€ì¼
+		CW_USEDEFAULT,			// ìœˆë„ìš° ìœ„ì¹˜, xì¢Œí‘œ 
+		CW_USEDEFAULT,			// ìœˆë„ìš° ìœ„ì¹˜, yì¢Œí‘œ
+		CW_USEDEFAULT,			// ìœˆë„ìš° í­
+        CW_USEDEFAULT,			// ìœˆë„ìš° ë†’ì´
+        NULL,					// ë¶€ëª¨ ìœˆë„ìš° í•¸ë“¤
+        NULL,					// ë©”ë‰´ í•¸ë“¤
+        hInstance,				// ì‘ìš© í”„ë¡œê·¸ëž¨ ID
+		NULL);					// ìƒì„±ëœ ìœˆë„ìš° ì •ë³´
    ShowWindow(hwnd, nCmdShow);
    UpdateWindow(hwnd);
 
@@ -52,20 +52,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, 
           WPARAM wParam, LPARAM lParam)     
 {
-   HDC hdc; // È­¸éÀÇ ÁÖ¹Îµî·Ï¹øÈ£
-   PAINTSTRUCT ps; // È­¸éÀ» Ä¥ÇÏ´Â µµ±¸
+   HDC hdc; // í™”ë©´ì˜ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
+   PAINTSTRUCT ps; // í™”ë©´ì„ ì¹ í•˜ëŠ” ë„êµ¬
    static COLORREF fColor;
    static char lineBfr[20][256];
    static int row, col;
 
    switch (iMsg) 
    {
-   case WM_CREATE:  // ÃÊ±âÈ­ ÇÔ¼ö, ÇÁ·Î±×·¥ ½ÃÀÛÇÒ ¶§ µü ÇÑ ¹ø ½ÇÇàµÊ.
+   case WM_CREATE:  // ì´ˆê¸°í™” í•¨ìˆ˜, í”„ë¡œê·¸ëž¨ ì‹œìž‘í•  ë•Œ ë”± í•œ ë²ˆ ì‹¤í–‰ë¨.
       row = col = 0;
-      // fColor = RGB(0,0,0); // °ËÀº»ö | R 1byte, G 1byte, B 1byte | Èò»öÀº 255, 255, 255
+      // fColor = RGB(0,0,0); // ê²€ì€ìƒ‰ | R 1byte, G 1byte, B 1byte | í°ìƒ‰ì€ 255, 255, 255
       break;
    
-   // WM_CREAT, WM_MOUSE... µîµî ±âº»ÀûÀ¸·Î ¾²´Â °ÍµéÀÌ ÀÖÀ½.
+   // WM_CREAT, WM_MOUSE... ë“±ë“± ê¸°ë³¸ì ìœ¼ë¡œ ì“°ëŠ” ê²ƒë“¤ì´ ìžˆìŒ.
 
    case WM_KEYDOWN:
       if(wParam == VK_LEFT){
@@ -85,21 +85,21 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg,
          lineBfr[row][col++] = wParam;
          lineBfr[row][col] = 0;
       }
-      InvalidateRect(hwnd, NULL, TRUE); //(FALSE¸é ÀÜ»ó ³²À½)
+      InvalidateRect(hwnd, NULL, TRUE); //(FALSEë©´ ìž”ìƒ ë‚¨ìŒ)
       break;
 
-   case WM_PAINT: //È­¸é¿¡ Ãâ·ÂÇÏ´Â ÀÌº¥Æ®
+   case WM_PAINT: //í™”ë©´ì— ì¶œë ¥í•˜ëŠ” ì´ë²¤íŠ¸
       hdc = BeginPaint(hwnd, &ps); 
-      // SetTextColor(hdc, fColor); // °ËÀº»ö ±Û¾¾
+      // SetTextColor(hdc, fColor); // ê²€ì€ìƒ‰ ê¸€ì”¨
       // TextOut(hdc, 10, 10, "Hello Windows API Programming", 29);       
-	  // TextOut(È­¸é ÁÖ¹Îµî·Ï¹øÈ£, xÁÂÇ¥, yÁÂÇ¥, Ãâ·ÂÇÒ ¹®ÀÚ¿­, ¹®ÀÚ¿­ ±æÀÌ);
+	  // TextOut(í™”ë©´ ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸, xì¢Œí‘œ, yì¢Œí‘œ, ì¶œë ¥í•  ë¬¸ìžì—´, ë¬¸ìžì—´ ê¸¸ì´);
       for(int i = 0; i < 20; i++){
          TextOut(hdc, 100, i*20, lineBfr[i], strlen(lineBfr[i]));
       }
 
-      EndPaint(hwnd, &ps); //¹Ýµå½Ã ÀÔ·Â
+      EndPaint(hwnd, &ps); //ë°˜ë“œì‹œ ìž…ë ¥
       break;
-   case WM_DESTROY: //ÇÁ·Î±×·¥ ³¡³¯ ¶§ ¾²´Â ÀÌº¥Æ®
+   case WM_DESTROY: //í”„ë¡œê·¸ëž¨ ëë‚  ë•Œ ì“°ëŠ” ì´ë²¤íŠ¸
       PostQuitMessage(0);
       break;
    } 
