@@ -1,0 +1,11 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(ChoihoheeWinApi.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  a.c
+C:\Users\Choihohee\source\repos\ChoihoheeWinApi\ChoihoheeWinApi\a.c(176,49): warning C4101: 'szDate' :참조되지 않은 지역 변수입니다.
+C:\Users\Choihohee\source\repos\ChoihoheeWinApi\ChoihoheeWinApi\a.c(176,61): warning C4101: 'szTime' :참조되지 않은 지역 변수입니다.
+C:\Users\Choihohee\source\repos\ChoihoheeWinApi\ChoihoheeWinApi\a.c(176,11): warning C4101: 'szFileName' :참조되지 않은 지역 변수입니다.
+     C:\Users\Choihohee\source\repos\ChoihoheeWinApi\x64\Debug\ASC2UN.lib 라이브러리 및 C:\Users\Choihohee\source\repos\ChoihoheeWinApi\x64\Debug\ASC2UN.exp 개체를 생성하고 있습니다.
+LINK : warning LNK4217: 'ReportError'에 정의된 'REPRTERR.obj' 기호를 함수 'a.obj'에서 'TraverseDirectory'이(가) 가져왔습니다.
+LINK : warning LNK4217: 'Options'에 정의된 'OPTIONS.obj' 기호를 함수 'a.obj'에서 'main'이(가) 가져왔습니다.
+LINK : warning LNK4217: 'PrintStrings'에 정의된 'PRINTMSG.obj' 기호를 함수 'REPRTERR.obj'에서 'ReportError'이(가) 가져왔습니다.
+LINK : warning LNK4217: 'PrintMsg'에 정의된 'PRINTMSG.obj' 기호를 함수 'REPRTERR.obj'에서 'ReportError'이(가) 가져왔습니다.
+  ChoihoheeWinApi.vcxproj -> C:\Users\Choihohee\source\repos\ChoihoheeWinApi\x64\Debug\ASC2UN.exe
