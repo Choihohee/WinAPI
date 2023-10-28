@@ -4,7 +4,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg,
 			WPARAM wParam, LPARAM lParam);
 
 
-LPCTSTR lpszClass = TEXT("1. Text out: Å°º¸µåÀÔ·Â");
+LPCTSTR lpszClass = TEXT("1. Text out: í‚¤ë³´ë“œì…ë ¥");
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, 
 		   LPSTR lpszCmdLine, int nCmdShow)
@@ -60,7 +60,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg,
 	switch (iMsg) 
 	{
 		
-	case WM_CREATE:   //CreateWindow() ÇÔ¼ö¿¡ ÀÇÇØ ¸ŞÀÎ À©µµ¿ì°¡ »ı¼ºµÈ Á÷ÈÄ¿¡ È­¸é¿¡ º¸¿©Áö±â Àü¿¡ º¸³»Áö´Â ¸Ş½ÃÁö.
+	case WM_CREATE:   //CreateWindow() í•¨ìˆ˜ì— ì˜í•´ ë©”ì¸ ìœˆë„ìš°ê°€ ìƒì„±ëœ ì§í›„ì— í™”ë©´ì— ë³´ì—¬ì§€ê¸° ì „ì— ë³´ë‚´ì§€ëŠ” ë©”ì‹œì§€.
 		fColor = RGB(0,0,0);
 		row=col=0;
 		break;
@@ -74,7 +74,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg,
 			linebfr[row][col++]=wParam;
 			linebfr[row][col]='\0';
 		}
-		InvalidateRect(hwnd, NULL, FALSE);//È­¸é ´Ù½Ã ±×¸®±â
+		InvalidateRect(hwnd, NULL, FALSE);//í™”ë©´ ë‹¤ì‹œ ê·¸ë¦¬ê¸°
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(hwnd, &ps);
