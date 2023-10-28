@@ -50,7 +50,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT iMessage,WPARAM wParam,LPARAM lParam)
 		EndPaint(hWnd,&ps);
 		return 0;
 	case WM_LBUTTONDOWN:
-		MessageBox(hWnd, "¸¶¿ì½º ¿ŞÂÊ ¹öÆ°À» ´­·¶½À´Ï´Ù","¸Ş½ÃÁö ¹Ú½º",MB_OK);
+		MessageBox(hWnd, "ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ì„ ëˆŒë €ìŠµë‹ˆë‹¤","ë©”ì‹œì§€ ë°•ìŠ¤",MB_OK);
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
